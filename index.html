@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kairos ご提案 | takadaminami様 美容サイト再構築プラン</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rose:#B86B77;
+    --wine:#5C2A3A;
+    --champagne:#D9C8A9;
+    --charcoal:#2E2A2A;
+    --mauve:#8C7B82;
+    --cream:#F5F1EC;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Noto Sans JP',sans-serif;
+    color:var(--charcoal);
+    background:var(--cream);
+    line-height:1.9;
+    font-weight:300;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Shippori Mincho',serif;
+    letter-spacing:0.04em;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{
+    max-width:1040px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(184,107,119,0.18), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(217,200,169,0.35), transparent 50%),
+      linear-gradient(135deg, #F7F3EE 0%, #F0E8DF 55%, #EADFD3 100%);
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    width:480px;height:480px;
+    border-radius:50%;
+    border:1px solid rgba(92,42,58,0.15);
+    top:-120px;right:-140px;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    width:300px;height:300px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(184,107,119,0.25), transparent 70%);
+    bottom:-80px;left:-80px;
+  }
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    padding:40px 24px;
+  }
+  .kairos-badge{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:0.3em;
+    color:var(--wine);
+    border:1px solid var(--wine);
+    padding:6px 18px;
+    border-radius:30px;
+    margin-bottom:36px;
+    background:rgba(255,255,255,0.5);
+  }
+  .hero h1{
+    font-size:clamp(28px,5vw,52px);
+    color:var(--wine);
+    line-height:1.6;
+    font-weight:600;
+  }
+  .hero h1 span{
+    display:block;
+    font-size:0.5em;
+    color:var(--mauve);
+    margin-top:18px;
+    letter-spacing:0.15em;
+    font-weight:400;
+  }
+  .hero p.lead{
+    margin-top:32px;
+    font-size:15px;
+    color:var(--charcoal);
+    max-width:520px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .scroll-cue{
+    margin-top:60px;
+    font-size:11px;
+    letter-spacing:0.3em;
+    color:var(--mauve);
+  }
+  .scroll-cue::after{
+    content:"";
+    display:block;
+    width:1px;height:40px;
+    background:linear-gradient(var(--mauve), transparent);
+    margin:12px auto 0;
+  }
+
+  section{
+    padding:110px 0;
+    position:relative;
+  }
+  .section-label{
+    font-size:12px;
+    letter-spacing:0.3em;
+    color:var(--rose);
+    text-transform:uppercase;
+    display:block;
+    margin-bottom:20px;
+  }
+  .section-title{
+    font-size:clamp(24px,3.5vw,36px);
+    color:var(--wine);
+    font-weight:600;
+    margin-bottom:46px;
+  }
+
+  /* ===== UNDERSTANDING ===== */
+  .understand{
+    background:#fff;
+  }
+  .understand-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+  }
+  .understand-visual{
+    position:relative;
+    height:320px;
+  }
+  .ring{
+    position:absolute;
+    border-radius:50%;
+    border:1px solid var(--champagne);
+  }
+  .ring1{width:280px;height:280px;top:0;left:20px;}
+  .ring2{width:180px;height:180px;top:60px;left:90px;border-color:var(--rose);opacity:0.5;}
+  .ring3{
+    width:90px;height:90px;
+    top:115px;left:155px;
+    background:linear-gradient(135deg, var(--rose), var(--wine));
+    border:none;
+  }
+  .understand-text p{
+    font-size:15.5px;
+    margin-bottom:20px;
+    color:#3a3535;
+  }
+  .understand-text .highlight{
+    color:var(--wine);
+    font-weight:500;
+    font-family:'Shippori Mincho',serif;
+    font-size:19px;
+    display:block;
+    margin-bottom:24px;
+    line-height:1.9;
+  }
+
+  /* ===== VALUE CARDS ===== */
+  .value{
+    background:linear-gradient(180deg, var(--cream), #EFE6DB);
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  .card{
+    background:#fff;
+    padding:38px 30px;
+    border-radius:4px;
+    position:relative;
+    box-shadow:0 10px 30px rgba(92,42,58,0.06);
+    border-top:3px solid var(--rose);
+    transition:transform .3s ease;
+  }
+  .card:hover{transform:translateY(-6px);}
+  .card .num{
+    font-family:'Shippori Mincho',serif;
+    font-size:34px;
+    color:var(--champagne);
+    position:absolute;
+    top:18px;right:24px;
+  }
+  .card h3{
+    color:var(--wine);
+    font-size:19px;
+    margin-bottom:14px;
+    margin-top:10px;
+  }
+  .card p{
+    font-size:14px;
+    color:#504a4a;
+  }
+  .card.wide{
+    grid-column:span 1;
+  }
+  @media (max-width:860px){
+    .card-grid{grid-template-columns:1fr;}
+  }
+
+  /* ===== SCHEDULE ===== */
+  .schedule{
+    background:#fff;
+  }
+  .timeline{
+    position:relative;
+    padding-left:40px;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:8px;top:6px;bottom:6px;
+    width:1px;
+    background:linear-gradient(var(--rose), var(--champagne));
+  }
+  .t-item{
+    position:relative;
+    margin-bottom:48px;
+  }
+  .t-item:last-child{margin-bottom:0;}
+  .t-item::before{
+    content:"";
+    position:absolute;
+    left:-40px;top:4px;
+    width:17px;height:17px;
+    border-radius:50%;
+    background:var(--cream);
+    border:2px solid var(--rose);
+  }
+  .t-item .t-date{
+    font-size:12px;
+    letter-spacing:0.15em;
+    color:var(--rose);
+    display:block;
+    margin-bottom:8px;
+  }
+  .t-item h3{
+    font-size:18px;
+    color:var(--wine);
+    margin-bottom:10px;
+  }
+  .t-item p{
+    font-size:14px;
+    color:#504a4a;
+  }
+  .deadline-note{
+    margin-top:50px;
+    text-align:center;
+    padding:26px;
+    background:var(--cream);
+    border:1px dashed var(--mauve);
+    font-size:14px;
+    color:var(--wine);
+  }
+
+  /* ===== CLOSING ===== */
+  .closing{
+    background:
+      radial-gradient(circle at 80% 30%, rgba(217,200,169,0.4), transparent 50%),
+      linear-gradient(135deg, var(--wine), #3e1d28);
+    color:#F5EDE6;
+    text-align:center;
+  }
+  .closing .section-label{color:var(--champagne);}
+  .closing h2{
+    color:#fff;
+    font-size:clamp(24px,3.6vw,38px);
+    margin-bottom:24px;
+  }
+  .closing p{
+    max-width:560px;
+    margin:0 auto 42px;
+    font-size:15px;
+    color:#E8DACB;
+  }
+  .cta-btn{
+    display:inline-block;
+    background:#fff;
+    color:var(--wine);
+    padding:18px 54px;
+    font-size:14px;
+    letter-spacing:0.2em;
+    border-radius:50px;
+    font-weight:500;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    transition:transform .3s;
+  }
+  .cta-btn:hover{transform:translateY(-3px);}
+  .closing .sign{
+    margin-top:60px;
+    font-family:'Shippori Mincho',serif;
+    font-size:13px;
+    letter-spacing:0.3em;
+    color:var(--champagne);
+  }
+
+  footer{
+    background:var(--charcoal);
+    color:#8f8783;
+    text-align:center;
+    padding:30px;
+    font-size:12px;
+    letter-spacing:0.1em;
+  }
+
+  @media (max-width:760px){
+    .understand-grid{grid-template-columns:1fr;}
+    .understand-visual{height:220px;}
+    section{padding:80px 0;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="kairos-badge">PROPOSAL FROM KAIROS</span>
+    <h1>言葉を整えることは、<br>肌を整えることに似ている。
+      <span>takadaminami 様　美容サイト再構築・編集のご提案</span>
+    </h1>
+    <p class="lead">
+      40代女性が、鏡の前で立ち止まる瞬間に出会う一文を。
+      既存のWordPressサイトに、読まれる構成と、見つけてもらえる仕組みを編み直します。
+    </p>
+    <div class="scroll-cue">SCROLL</div>
+  </div>
+</section>
+
+<section class="understand">
+  <div class="wrap">
+    <span class="section-label">Understanding / 拝読して</span>
+    <h2 class="section-title">このご依頼を、こう受け止めています。</h2>
+    <div class="understand-grid">
+      <div class="understand-visual">
+        <div class="ring ring1"></div>
+        <div class="ring ring2"></div>
+        <div class="ring ring3"></div>
+      </div>
+      <div class="understand-text">
+        <span class="highlight">「仕上がりが良ければ、継続も」——<br>その言葉こそ、今回いちばん大切にしたい約束です。</span>
+        <p>
+          美容ジャンルのWordPressサイトを、40代女性という具体的な読者像に向けて編集し直す。
+          一見シンプルなご依頼ですが、実際には「デザインの美しさ」と「検索エンジンに評価される構造」の
+          両方を同時に満たす必要があり、片方だけに寄ると成果が出にくい領域です。
+        </p>
+        <p>
+          さらに10/10という明確な納期があり、今回の仕上がりが次の継続依頼を左右する——
+          私たちはそのプレッシャーも含めて、丁寧にお引き受けしたいと考えています。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="value">
+  <div class="wrap">
+    <span class="section-label">Value / Kairosができること</span>
+    <h2 class="section-title">Kairosがご提供する価値</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>SEO設計 × WordPress編集</h3>
+        <p>見出し構造・内部リンク・メタ情報を整理し、検索からの流入を見据えた編集を行います。見た目の修正で終わらせません。</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>40代女性へ届く言葉選び</h3>
+        <p>ターゲット層の悩みや関心を踏まえ、押しつけがましくなく、信頼できるトーンでコピーと本文を整えます。</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>美容ジャンル特有の表現配慮</h3>
+        <p>薬機法・景表法まわりの表現リスクにも注意を払い、安心して運用いただける文章設計を心がけます。</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>納期厳守の進行管理</h3>
+        <p>10/10の納品に向けて、逆算スケジュールと中間報告を設け、進捗が見える形で進めます。</p>
+      </div>
+      <div class="card">
+        <div class="num">05</div>
+        <h3>継続を見据えた設計</h3>
+        <p>今回限りで終わらない運用性を意識し、今後の更新や追加ページにも対応しやすい構成でお渡しします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="schedule">
+  <div class="wrap">
+    <span class="section-label">Flow / 進め方</span>
+    <h2 class="section-title">ご納品までのスケジュールイメージ</h2>
+    <div class="timeline">
+      <div class="t-item">
+        <span class="t-date">STEP 01　着手初日〜2日目</span>
+        <h3>現状サイトの確認・ヒアリング</h3>
+        <p>既存WordPressの構造、ターゲット層、改善したい箇所を確認し、編集方針をすり合わせます。</p>
+      </div>
+      <div class="t-item">
+        <span class="t-date">STEP 02　3〜5日目</span>
+        <h3>構成案・SEOキーワードのご提案</h3>
+        <p>ページ構成と見出し案、狙うキーワードをまとめてご確認いただきます。</p>
+      </div>
+      <div class="t-item">
+        <span class="t-date">STEP 03　6〜9日目</span>
+        <h3>編集・ライティング・実装</h3>
+        <p>WordPress上での編集作業と、SEOを意識した本文の執筆・調整を進めます。</p>
+      </div>
+      <div class="t-item">
+        <span class="t-date">STEP 04　仕上げ</span>
+        <h3>最終確認・微調整・納品</h3>
+        <p>表示崩れやリンク、表現面を最終チェックし、10/10までにご納品いたします。</p>
+      </div>
+    </div>
+    <div class="deadline-note">
+      10月10日の納品を最優先に、逆算でスケジュールを組みます。ご連絡いただき次第、着手日を調整いたします。
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <span class="section-label">Next Action</span>
+    <h2>まずは、気軽にお声がけください。</h2>
+    <p>
+      ポートフォリオや実績のご共有、お見積もりのご相談など、
+      どんな小さなご質問からでも構いません。
+      takadaminami様の美容サイトが、40代女性にとって
+      「また読みたくなる場所」になるよう、Kairosがお手伝いします。
+    </p>
+    <a href="#" class="cta-btn">お問い合わせ・ご相談はこちら</a>
+    <div class="sign">KAIROS — Web制作・システム開発チーム</div>
+  </div>
+</section>
+
+<footer>
+  © Kairos. This proposal was crafted exclusively for takadaminami's project.
+</footer>
+
+</body>
+</html>
